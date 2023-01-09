@@ -1,0 +1,72 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< test.camunda.unittest:test-camunda-unittest >-------------
+[INFO] Building test-camunda-unittest 0.1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test-camunda-unittest ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /src/tests_java/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ test-camunda-unittest ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ test-camunda-unittest ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ test-camunda-unittest ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /src/tests_java/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ test-camunda-unittest ---
+[INFO] Surefire report directory: /src/tests_java/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running test.camunda.unittest.CallWorkTestCase
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: testCallDoWork(test.camunda.unittest.CallWorkTestCase) succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleTestMethodCoverage
+INFO: testCallDoWork test method coverage is 0.8421052631578947
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: test.camunda.unittest.CallWorkTestCase succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleClassCoverage
+INFO: test.camunda.unittest.CallWorkTestCase test class coverage is: 0.8421052631578947
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.105 sec
+Running test.camunda.unittest.CallNothingTestCase
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: testCallDoNothing(test.camunda.unittest.CallNothingTestCase) succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleTestMethodCoverage
+INFO: testCallDoNothing test method coverage is 0.8421052631578947
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: test.camunda.unittest.CallNothingTestCase succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleClassCoverage
+INFO: test.camunda.unittest.CallNothingTestCase test class coverage is: 0.8421052631578947
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 sec
+Running test.camunda.unittest.CalledTestCase
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: testDoNothing(test.camunda.unittest.CalledTestCase) succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleTestMethodCoverage
+INFO: testDoNothing test method coverage is 0.75
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: testDoWork(test.camunda.unittest.CalledTestCase) succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleTestMethodCoverage
+INFO: testDoWork test method coverage is 0.75
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule succeeded
+INFO: test.camunda.unittest.CalledTestCase succeeded.
+Jan 09, 2023 5:54:51 PM org.camunda.community.process_test_coverage.junit4.platform7.rules.TestCoverageProcessEngineRule handleClassCoverage
+INFO: test.camunda.unittest.CalledTestCase test class coverage is: 1.0
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.177 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.970 s
+[INFO] Finished at: 2023-01-09T17:54:52+01:00
+[INFO] ------------------------------------------------------------------------

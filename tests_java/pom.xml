@@ -1,0 +1,260 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.camunda.unittest</groupId>
+  <artifactId>test-camunda-unittest</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  
+    <!-- set the version for camunda BPM here -->
+    <version.camunda>7.17.0</version.camunda>
+    <version.junit>4.13.2</version.junit>
+    <version.h2>2.1.214</version.h2>
+    <version.assertj>3.24.1</version.assertj>
+    <version.camunda_test_coverage>2.0.0</version.camunda_test_coverage>
+
+    <!-- set the java version here -->
+    <version.java>1.8</version.java>
+    
+    <!-- set the plugin versions here -->
+    <version.plugin.compiler>3.10.1</version.plugin.compiler>
+
+    <!-- bonus -->
+    <version.groovy>3.0.14</version.groovy>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.camunda.bpm.dmn</groupId>
+        <artifactId>camunda-engine-dmn-bom</artifactId>
+        <type>pom</type>
+        <scope>import</scope>
+        <version>${version.camunda}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-bom</artifactId>
+        <type>pom</type>
+        <scope>import</scope>
+        <version>${version.camunda}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-bpm-assert</artifactId>
+<!--        
+        <groupId>org.camunda.bpm.assert</groupId>
+        <artifactId>camunda-bpm-assert</artifactId>
+            	<version>15.0.0</version> -->
+
+        <version>7.17.0</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- camunda process engine -->
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.camunda.bpm.dmn</groupId>
+      <artifactId>camunda-engine-dmn</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.camunda.community.process_test_coverage</groupId>
+      <artifactId>camunda-process-test-coverage-junit4-platform-7</artifactId>
+      <version>${version.camunda_test_coverage}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- OPTIONAL: spin process engine plugin -->
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-plugin-spin</artifactId>
+    </dependency>
+
+    <dependency>
+       <groupId>pl.pragmatists</groupId>
+       <artifactId>JUnitParams</artifactId>
+       <version>1.1.1</version>
+       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.4.5</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- OPTIONAL: spin dataformats -->
+    <dependency>
+      <groupId>org.camunda.spin</groupId>
+      <artifactId>camunda-spin-core</artifactId>
+      <type>pom</type>
+      <scope>test</scope>
+      <version>1.18.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.camunda.spin</groupId>
+      <artifactId>camunda-spin-bom</artifactId>
+      <type>pom</type>
+      <scope>test</scope>
+      <version>1.18.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.camunda.spin</groupId>
+      <artifactId>camunda-spin-dataformat-json-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.camunda.spin</groupId>
+      <artifactId>camunda-spin-dataformat-xml-dom</artifactId>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.10.1</version>
+    </dependency>
+
+    <!-- OPTIONAL: connect process camunda-spin-dataformat-xml-dom</artifactId>engine plugin -->
+    <dependency>
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-engine-plugin-connect</artifactId>
+    </dependency>
+
+    <!-- OPTIONAL: connectors -->
+    <dependency>
+      <groupId>org.camunda.connect</groupId>
+      <artifactId>camunda-connect-http-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.camunda.connect</groupId>
+      <artifactId>camunda-connect-soap-http-client</artifactId>
+    </dependency>
+
+    <!-- OPTIONAL: freemarker process engine plugin -->
+    <dependency>
+      <groupId>org.camunda.template-engines</groupId>
+      <artifactId>camunda-template-engines-freemarker</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jcl</artifactId>
+      <version>1.7.36</version>
+    </dependency>
+
+    <!-- junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+  
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${version.assertj}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- camunda BPM assert -->
+    <dependency>
+      <!-- <groupId>org.camunda.bpm.assert</groupId> -->
+      <groupId>org.camunda.bpm</groupId>
+      <artifactId>camunda-bpm-assert</artifactId>
+      <scope>test</scope>
+        <version>7.17.0</version>
+    </dependency>
+
+    <!-- database -->
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>provided</scope>
+      <version>${version.h2}</version>
+    </dependency>
+
+    <!-- jaxb -->
+    <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <scope>test</scope>
+        <version>2.3.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-core</artifactId>
+        <scope>test</scope>
+        <version>4.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-impl</artifactId>
+        <scope>test</scope>
+        <version>4.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <scope>test</scope>
+        <version>1.1.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-bom</artifactId>
+        <version>${version.groovy}</version>
+ 	<scope>test</scope>
+	<type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-jsr223</artifactId>
+        <version>${version.groovy}</version>
+        <scope>test</scope>
+    </dependency>
+<!--   
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-json</artifactId>
+        <version>${version.groovy}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-xml</artifactId>
+        <version>${version.groovy}</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-templates</artifactId>
+        <version>${version.groovy}</version>
+        <scope>test</scope>
+    </dependency>
+-->
+</dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${version.plugin.compiler}</version>
+        <configuration>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+
